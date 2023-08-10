@@ -1,11 +1,3 @@
-const quoteBody = document.getElementById("quoteBody");
-const authorBody = document.getElementById("authorBody");
-const photo = document.getElementById("photo");
-console.log(quoteBody)
-console.log(authorBody)
-console.log(photo)
-
-
 const quoteList = [
     {
         quote: "Don't cry because it's over, smile because it happened.",
@@ -47,20 +39,38 @@ const quoteList = [
       },
 ];
 
-function retreiveRdmQuote() {
-    let rdmIndex = Math.floor(Math.random() * quoteList.length)
-    
+let rdmIndex;
+let prevIndex;
 
-    console.log(rdmIndex)
-    console.log(quoteList[rdmIndex].quote)
-    console.log(quoteList[rdmIndex].author)
-    console.log(quoteList[rdmIndex].image)
+function retreiveRdmQuote() {   
+  
+    rdmIndex = Math.floor(Math.random() * quoteList.length)
+
+    if (rdmIndex === prevIndex) {
+
+      retreiveRdmQuote();
+
+    } else {
+    
+    prevIndex = rdmIndex
 
     quoteBody.innerHTML = quoteList[rdmIndex].quote;
     authorBody.innerHTML = quoteList[rdmIndex].author;
     photo.src = quoteList[rdmIndex].image;
+    
+    }
+
+    
 };
 
 window.onload = function() {
+
+  const quoteBody = document.getElementById("quoteBody");
+  const authorBody = document.getElementById("authorBody");
+  const photo = document.getElementById("photo");
+  console.log(quoteBody)
+  console.log(authorBody)
+  console.log(photo)
+  
     retreiveRdmQuote();
 }
