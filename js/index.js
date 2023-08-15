@@ -5,12 +5,6 @@ const quoteList = [
         image: "https://bit.ly/2Gf5Bwn"
       },
       {
-        quote:
-          "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
-        author: "Marilyn Monroe",
-        image: "https://bit.ly/2IU7GQ3"
-      },
-      {
         quote: "Be yourself; everyone else is already taken.",
         author: "Oscar Wilde",
         image: "https://bit.ly/2DWZDOH"
@@ -55,7 +49,7 @@ function retreiveRdmQuote() {
     prevIndex = rdmIndex
 
     quoteBody.innerHTML = quoteList[rdmIndex].quote;
-    authorBody.innerHTML = quoteList[rdmIndex].author;
+    authorBody.innerHTML = `- ${quoteList[rdmIndex].author}`;
     photo.src = quoteList[rdmIndex].image;
     
     }
